@@ -24,11 +24,11 @@
 					<div class="cont">
                         <a href="?city={{ city_id }}"><span class="{% ifequal category '' %}active2{% endifequal %}">全部</span></a>
 
-                            <a href="?ct=pxjg&city={{ city_id }}"><span class="{% ifequal category 'pxjg' %}active2{% endifequal %}">培训机构</span></a>
+                            <a href="?ct=org&city={{ city_id }}"><span class="{% ifequal category 'org' %}active2{% endifequal %}">培训机构</span></a>
 
-                            <a href="?ct=gx&city={{ city_id }}"><span class="{% ifequal category 'gx' %}active2{% endifequal %}">高校</span></a>
+                            <a href="?ct=school&city={{ city_id }}"><span class="{% ifequal category 'school' %}active2{% endifequal %}">高校</span></a>
 
-                            <a href="?ct=gr&city={{ city_id }}"><span class="{% ifequal category 'gr' %}active2{% endifequal %}">个人</span></a>
+                            <a href="?ct=person&city={{ city_id }}"><span class="{% ifequal category 'person' %}active2{% endifequal %}">个人</span></a>
 
 					</div>
 				</li>
@@ -93,7 +93,7 @@
 		 <div class="pageturn">
             <ul class="pagelist">
                 {% if all_orgs.has_previous %}
-                    <li class="long"><a href="?{{ all_orgs.previous_page_number.querystring }}">上一页</a></li>
+                    <li class="long"><a href="?{{ all_orgs.previous_page_number.querystring }}">Last</a></li>
                 {% endif %}
 
                 {% for page in all_orgs.pages %}
@@ -107,8 +107,9 @@
                         <li class="none"><a href="">...</a></li>
                     {% endif %}
                 {% endfor %}
+
                 {% if all_orgs.has_next %}
-                    <li class="long"><a href="?{{ all_orgs.next_page_number.querystring }}">下一页</a></li>
+                    <li class="long"><a href="?{{ all_orgs.next_page_number.querystring }}">Next</a></li>
                 {% endif %}
 
             </ul>

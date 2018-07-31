@@ -12,19 +12,28 @@ class CityDict(models.Model):
         verbose_name = "city"
         verbose_name_plural = verbose_name
 
+    def __str__(self):
+        return self.name
 
 class CourseOrg(models.Model):
     name = models.CharField(max_length=50, verbose_name="org")
     clicks = models.IntegerField(default=0, verbose_name="click")
     desc = models.TextField(verbose_name="orgDesc")
+    category = models.CharField(default="org", verbose_name="OrgCategory", max_length=20, choices=(("org", "org"), ("person", "person"), ("school", "school")))
     fav_nums = models.IntegerField(default=0, verbose_name="favNum")
     image = models.ImageField(upload_to="org/%Y/%m", verbose_name="pic", max_length=120)
     address = models.CharField(max_length=150, verbose_name="address")
     city = models.ForeignKey(CityDict, verbose_name="city")
+    students = models.IntegerField(default=0, verbose_name="students")
+    course_nums = models.IntegerField(default=0, verbose_name="course_nums")
+    add_time = models.DateTimeField(default=datetime.now)
 
     class Meta:
         verbose_name = "organization"
         verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.name
 
 
 class Teacher(models.Model):
@@ -41,3 +50,4 @@ class Teacher(models.Model):
     class Meta:
         verbose_name = "teacher"
         verbose_name_plural = verbose_name
+

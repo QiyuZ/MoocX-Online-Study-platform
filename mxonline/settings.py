@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'courses',
     'xadmin',
     'crispy_forms',
-    'captcha'
+    'captcha',
+    'pure_pagination',
 ]
 AUTH_USER_MODEL = "users.UserProfile"
 
@@ -73,6 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.core.context_processors.media',
             ],
         },
     },
@@ -143,5 +145,8 @@ EMAIL_HOST = "smtp.sina.com"
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "projectsedu@sina.com"
 EMAIL_HOST_PASSWORD = "admin321"
-EMAIL_USE_TLS=True
+EMAIL_USE_TLS = True
 EMAIL_FROM = "projectsedu@sina.com"
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
